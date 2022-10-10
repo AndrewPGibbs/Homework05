@@ -1,7 +1,7 @@
 var today = moment().clone();
 
 function setTodaysDate() {
-  $("#currentDay").text(today.format("MMM Do, YYYY"));
+  $("#currentDay").text(today.format("MMM Do, YYYY h:mA"));
 }
 const hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 var updateInterval;
