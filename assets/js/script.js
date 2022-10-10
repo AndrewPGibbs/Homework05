@@ -40,7 +40,7 @@ function createTimeBlock(currentHour) {
   row.appendChild(colText);
   var colSave = createEl("div", "col-sm-1 col-12 saveBtn");
   row.appendChild(colSave);
-  var iconSave = createEl("i", "far fa-save");
+  var iconSave = createEl("i", "fas fa-save"); 
   colSave.appendChild(iconSave);
 
   return timeBlock;

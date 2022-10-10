@@ -70,13 +70,15 @@
     border-left: 1px solid black;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    background-color: #06AED5;
+    background-color: #035b6e;
     color: white;
     width: 10%;
+    font-size: 25px;
+    padding-top: 3px;
   }
   
   .saveBtn i:hover {
-    font-size: 20px;
+    font-size: 45px;
     transition: all .3s ease-in-out;
   }
 
