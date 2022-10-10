@@ -47,14 +47,14 @@ function createTimeBlock(currentHour) {
 }
 
 function createEl(tag, cls, currentHour) { //createEl is a function with the parameters of tag, class, and currenHour
-  var el = document.createElement(tag); //this is assigning the variable el the value ofthe  createElement method and naming it the "tag" passed to it
+  var el = document.createElement(tag); //assigns the variable el the value ofthe  createElement method and naming it the "tag" passed to it
   if (currentHour) {
     var t = getCurrentMoment(currentHour);
-    var displayHour = amPmFormat(t);
+    var displayHour = amPmFormat(t); //displays the hour in 12 hour format
     if (cls.includes("description")) {
-      cls += " " + getTimeFormat(t);
-      el.textContent = localStorage.getItem(dateFormat() + displayHour);
-      el.setAttribute("data-hour", displayHour); 
+      cls += " " + getTimeFormat(t); // determines the proper date and tense
+      el.textContent = localStorage.getItem(dateFormat() + displayHour);  //retrieves date format in YYYY MM DD format and adds the hour to it from localStorage
+      el.setAttribute("data-hour", displayHour); // the hour in 12 hour format is given the attribute of data-hour
     } else {
       el.textContent = displayHour.padEnd(4, " ");
     }
@@ -67,14 +67,14 @@ function verifyTimeBlocks() {
   console.log("Verifying TimeBlocks"); //logs a message 
   var $descriptions = $(".description"); //adds a class of description to the variable
   $descriptions.each(function (index) {
-    var hour12 = $(this).attr("data-hour"); //this is pulling the data-hour info from local and adding it to var hour12
+    var hour12 = $(this).attr("data-hour"); // is pulling the data-hour info from local and adding it to var hour12
     var t = getMoment12H(hour12);  
-    var tense = getTimeFormat(t);  // this retrieves the proper tense 
+    var tense = getTimeFormat(t);  // retrieves the proper tense 
     if ($(this).hasClass(tense)) {
     } else if (tense === "present") {
       $(this).removeClass("past future");
     } else if (tense === "past") {
-      $(this).removeClass("present future");  // this determines whether the time blocks has been assigned the class of 
+      $(this).removeClass("present future");  // determines whether the time blocks has been assigned the class of 
     } else if (tense === "future") {
       $(this).removeClass("past present");
     } else {
@@ -92,7 +92,7 @@ function getTimeFormat(t) {
   var n = moment();
 
   if (
-    n.isSame(t, "hour") &&  //this compares if the "hour" of var n and var t are the same
+    n.isSame(t, "hour") &&  //compares if the "hour" of var n and var t are the same
     n.isSame(t, "day") &&  // day
     n.isSame(t, "month") && // month
     n.isSame(t, "year")// year
@@ -107,11 +107,11 @@ function getTimeFormat(t) {
 }
 
 function dateFormat() {
-  return today.format("YYYYMMDD-");
+  return today.format("YYYYMMDD-"); // formats the date into YYYY MM DD
 }
 
 function amPmFormat(m) {
-  return m.format("h A");
+  return m.format("h A"); // moment.js terms , h displays the time in a 12 hour format and A is reponsible for am/pm
 }
 
 function getMoment12H(hour12) {
