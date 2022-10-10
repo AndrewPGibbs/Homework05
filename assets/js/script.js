@@ -11,7 +11,7 @@ function saveToLocal() {
   var saveInLocal = $(this).siblings(".description"); 
   var hour = saveInLocal.attr("data-hour");
   var text = saveInLocal.val();
-  localStorage.setItem(getStoreDatePrefix() + hour.trim(), text.trim());
+  localStorage.setItem(localStorageDate() + hour.trim(), text.trim());
   $("#updating").fadeIn(100).fadeOut(1000);
 }
 
@@ -108,6 +108,9 @@ function getTimeFormat(t) {
 
 function dateFormat() {
   return today.format("YYYYMMDD-"); // formats the date into YYYY MM DD
+}
+function localStorageDate() {
+    return today.format("YYYYMMDD-");
 }
 
 function amPmFormat(m) {
