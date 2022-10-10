@@ -7,7 +7,7 @@ This app will be available in the browser and will update its display depending 
 
 This day planner will display typical business hours (9am- 5pm). Each row will represent an hour. The user will be able to input text as well as a button to save it to local storage to help the user organize their day.
 
-![screenshot](images/Screenshot.png)
+![Screenshot](./images/Screenshot.png)
 
 ## Usage
 1. Enter an event
