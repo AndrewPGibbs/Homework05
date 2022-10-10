@@ -3,27 +3,27 @@ var today = moment().clone();
 function setTodaysDate() {
   $("#currentDay").text(today.format("MMM Do, YYYY"));
 }
-const hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
+const hours = [ 9, 10, 11, 12, 13, 14, 15, 16, 17];
 var updateInterval;
-const timeBlockInterval = 60000;
+const timeBlockInterval = 30000;
 
 function saveToLocal() {
   var saveInLocal = $(this).siblings(".description"); 
   var hour = saveInLocal.attr("data-hour");
   var text = saveInLocal.val();
   localStorage.setItem(localStorageDate() + hour.trim(), text.trim());
-  $("#updating").fadeIn(100).fadeOut(1000);
 }
 
-function loadDate() {
+function loadDate(fadeTime = 1100) {
   clearInterval(updateInterval);
   $(".container").html("");
 
   for (var i = 0; i < hours.length; i++) {
     $(".container").append(createTimeBlock(hours[i]));
   }
-
   updateInterval = setInterval(verifyTimeBlocks, timeBlockInterval);
+
+  $(".container").hide().fadeIn(fadeTime);
 }
 
 function createTimeBlock(currentHour) {
@@ -124,6 +124,9 @@ function getCurrentMoment(currentHour) {
   return moment(today.format("YYYYMMDD ") + currentHour, "YYYYMMDD H");
 }
 
+// function clearButton() {
+//     clearButton.
+// }
 // Document Ready
 $(function () {
   // Set the date in the header
@@ -132,6 +135,7 @@ $(function () {
   // Setup Save Button Events through the container element
   $(".container").on("click", ".saveBtn", saveToLocal);
 
+ 
   // Load the day into the view
   loadDate();
 });
