@@ -52,18 +52,18 @@
   }
   
   .past {
-    background-color: #d3d3d3;
+    background-color: #9b9a9a;
     color: white;
   }
   
   .present {
-    background-color: #ff6961;
-    color: white;
+    background-color: #1b7908;
+    color: rgb(0, 0, 0);
   }
   
   .future {
-    background-color: #77dd77;
-    color: white;
+    background-color: #77c0dd;
+    color: rgb(0, 0, 0);
   }
   
   .saveBtn {

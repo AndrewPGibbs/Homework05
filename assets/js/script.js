@@ -3,7 +3,7 @@ var today = moment().clone();
 function setTodaysDate() {
   $("#currentDay").text(today.format("MMM Do, YYYY h:mA"));
 }
-const hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+const hours = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ,19 ,20, 21, 22, 23, 24];
 var updateInterval;
 const timeBlockInterval = 30000;
 
