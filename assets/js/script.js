@@ -3,7 +3,7 @@ var today = moment().clone();
 function setTodaysDate() {
   $("#currentDay").text(today.format("MMM Do, YYYY"));
 }
-const hours = [ 9, 10, 11, 12, 13, 14, 15, 16, 17];
+const hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 var updateInterval;
 const timeBlockInterval = 30000;
 
@@ -124,9 +124,12 @@ function getCurrentMoment(currentHour) {
   return moment(today.format("YYYYMMDD ") + currentHour, "YYYYMMDD H");
 }
 
-// function clearButton() {
-//     clearButton.
-// }
+function clearButton() {
+    clear.addEventListener('click', function() {
+        localStorage.clear();
+        location.reload();
+    })
+}
 // Document Ready
 $(function () {
   // Set the date in the header
@@ -138,4 +141,5 @@ $(function () {
  
   // Load the day into the view
   loadDate();
+  clearButton();
 });
